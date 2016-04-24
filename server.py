@@ -75,8 +75,8 @@ def hello():
                 message = x['message']['text']
                 recipient_id = x['sender']['id']
                 client.run_actions(session_id, message, {})
-                print messageToSend
                 if done:
+                    print messageToSend
                     bot.send_text_message(recipient_id, messageToSend)
             else:
                 pass
