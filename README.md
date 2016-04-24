@@ -34,7 +34,9 @@ git push heroku master
 ## Further Configuration
  * Setup your Facebook Webhook callback to the heroku app you deployed.
  * Set the following in your HEroku Config Variables:
-```WIT_TOKEN = "your wit.ai token"
+
+```
+WIT_TOKEN = "your wit.ai token"
 FB_PAGE_TOKEN = "your facebook page token"
 FB_VERIFY_TOKEN = "your webhook verification token"
 WIT_USERNAME = "your wit.ai username"
