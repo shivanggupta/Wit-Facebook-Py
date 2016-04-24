@@ -28,7 +28,7 @@ def first_entity_value(entities, entity):
 
 def say(session_id, context, msg):
     global messageToSend
-    messageToSend = msg
+    messageToSend = str(msg)
     global done
     done = True
 
@@ -78,7 +78,6 @@ def hello():
                 if done:
                     print messageToSend
                     bot.send_text_message(recipient_id, messageToSend)
-                    bot.send_text_message(recipient_id, "a")
             else:
                 pass
         return "success"
