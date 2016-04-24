@@ -11,12 +11,14 @@ access_token = os.environ.get('WIT_TOKEN')
 # Facebook App access token. Don't forge to connect app to page.
 TOKEN = os.environ.get('FB_PAGE_TOKEN')
 
+# Set up bot and flask app
 bot = Bot(TOKEN)
-
 app = Flask(__name__)
 
-messageToSend = 'a'
+# Global variables to ensure pymessenger bot waits for wit.ai to respond.
+messageToSend = 'This is default. Something isn't correct
 done = False
+
 
 def first_entity_value(entities, entity):
     if entity not in entities:
@@ -25,6 +27,7 @@ def first_entity_value(entities, entity):
     if not val:
         return None
     return val['value'] if isinstance(val, dict) else val
+
 
 def say(session_id, context, msg):
     global messageToSend
@@ -39,9 +42,12 @@ def merge(session_id, context, entities, msg):
         context['loc'] = loc
     return context
 
+
 def error(session_id, context, e):
     print(str(e))
 
+
+# Calls pywapi to fetch weather info in realtime
 def fetch_weather(session_id, context):
     location = context['loc']
     location_id = pywapi.get_loc_id_from_weather_com(location)[0][0]
@@ -56,17 +62,19 @@ actions = {
     'fetch-weather': fetch_weather,
 }
 
-# Insert wit username below
-
 client = Wit(access_token, actions)
 session_id = os.environ.get('WIT_USERNAME')
-# client.run_actions(session_id, 'weather in %s'%place, {})
 
-@app.route("/webhook", methods = ['GET', 'POST'])
+# Set up webserver and respond to messages
+
+
+@app.route("/webhook", methods=['GET', 'POST'])
 def hello():
+    # Get request according to Facebook Requirements
     if request.method == 'GET':
         if (request.args.get("hub.verify_token") == os.environ.get('FB_VERIFY_TOKEN')):
-                return request.args.get("hub.challenge")
+            return request.args.get("hub.challenge")
+    # Post Method for replying to messages
     if request.method == 'POST':
         output = request.json
         event = output['entry'][0]['messaging']
@@ -82,11 +90,13 @@ def hello():
                 pass
         return "success"
 
+
+# Default test route for server
 @app.route("/")
 def new():
     return "Server is Online."
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT',5000))
-    app.run(host = "0.0.0.0", port=port)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host="0.0.0.0", port=port)

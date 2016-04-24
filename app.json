@@ -2,7 +2,7 @@
   "name": "Python Weather Messenger Bot",
   "description": "A simple Python app, that deploys a bot on Facebook Messenger to provide realtime weather updates.",
   "image": "heroku/python",
-  "repository": "https://github.com/shivanggupta/python-messenger-bot",
+  "repository": "https://github.com/shivanggupta/python-weather-messenger-bot",
   "keywords": ["python", "flask", "wit", "bot", "facebook", "Messenger" ],
   "env": {
     "WIT_TOKEN": {

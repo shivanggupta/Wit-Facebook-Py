@@ -1,44 +1,67 @@
-# python-getting-started
+# Python Weather Messenger Bot
 
-A barebones Python app, which can easily be deployed to Heroku.
+A Python bot, that contains a Flask server designed to be deployed on Heroku. 
+The application uses a bot made using the Python API from [Wit.ai](https://wit.ai/home) and the [Facebook Messenger API](https://developers.facebook.com/quickstarts/?platform=web).
 
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+The bot is designed to provide real-time weather updates using the [pywapi](https://pypi.python.org/pypi/pywapi) wrapper for the Weather.com API.
 
-## Running Locally
+## Initial Installation
+Fork this repository and clone.
 
-Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
+```bash
+git clone https://github.com/{your_id}/Wit-Facebook.git
+cd python-weather-messenger-bot
+ ```
 
-```sh
-$ git clone git@github.com:heroku/python-getting-started.git
-$ cd python-getting-started
+## Configuration
+ * Setup your wit.ai App
+ * Setup your Facebook Page
+ * Setup your Facebook Page
 
-$ pip install -r requirements.txt
+ This code assumes the above have been set up and trained according to the quickstart guide by Facebook.
 
-$ createdb python_getting_started
+ You can find information on how to set up the above in the [Guide by Facebook](https://developers.facebook.com/quickstarts/?platform=web).
 
-$ python manage.py migrate
-$ python manage.py collectstatic
+##Launch Server in Heruku
 
-$ heroku local
+* Run heroku create and push to heroku:
+
+```bash
+heroku create
+git push heroku master
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-
-$ heroku run python manage.py migrate
-$ heroku open
+## Further Configuration
+ * Setup your Facebook Webhook callback to the heroku app you deployed.
+ * Set the following in your HEroku Config Variables:
+```WIT_TOKEN = "your wit.ai token"
+FB_PAGE_TOKEN = "your facebook page token"
+FB_VERIFY_TOKEN = "your webhook verification token"
+WIT_USERNAME = "your wit.ai username"
 ```
-or
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Finally go to the Facebook page you made and chat to the bot!
+
 
 ## Documentation
 
-For more information about using Python on Heroku, see these Dev Center articles:
+Within the repository you'll find the following directories and files:
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+```
+python-weather-messenger-bot
+        ├── setup needed as Heroku pip doesn't find this.
+        ├── app.json
+        ├── Procfile
+        └── README.md
+        └── Procfile.windows
+        └── runtime.txt
+        └── server.py
+	    └── requirements.txt
+```
+
+
+## Creators
+
+**Shivang Gupta**
+
+
