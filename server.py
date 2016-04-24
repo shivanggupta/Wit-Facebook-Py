@@ -16,9 +16,6 @@ bot = Bot(TOKEN)
 app = Flask(__name__)
 
 
-client = Wit(access_token, actions)
-session_id = os.environ.get('WIT_USERNAME')
-
 messageToSend = ''
 
 def first_entity_value(entities, entity):
@@ -59,7 +56,8 @@ actions = {
 
 # Insert wit username below
 
-
+client = Wit(access_token, actions)
+session_id = os.environ.get('WIT_USERNAME')
 # client.run_actions(session_id, 'weather in %s'%place, {})
 
 @app.route("/webhook", methods = ['GET', 'POST'])
