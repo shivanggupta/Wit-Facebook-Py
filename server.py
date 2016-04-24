@@ -76,7 +76,7 @@ def hello():
         return "success"
 
 @app.route("/")
-def hello():
+def new():
     return "Server is Online."
 
 
