@@ -40,7 +40,7 @@ def fetch_weather(session_id, context):
     location = context['loc']
     location_id = pywapi.get_loc_id_from_weather_com(location)[0][0]
     weather_com_result = pywapi.get_weather_from_weather_com(location_id)
-    context['forecast'] = weather_com_result["current_conditions"]["temperature"]
+    context['forecast'] = weather_com_result["current_conditions"]["text"]
     return context
 
 actions = {
@@ -70,7 +70,7 @@ def hello():
                 message = x['message']['text']
                 recipient_id = x['sender']['id']
                 messageToSend = client.run_actions(session_id, message, {})
-                bot.send_text_message(recipient_id, messageToSend)
+                bot.send_text_message(recipient_id, message)
             else:
                 pass
         return "success"
