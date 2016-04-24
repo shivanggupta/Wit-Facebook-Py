@@ -16,7 +16,7 @@ bot = Bot(TOKEN)
 app = Flask(__name__)
 
 # Global variables to ensure pymessenger bot waits for wit.ai to respond.
-messageToSend = 'This is default. Something isn't correct
+messageToSend = 'This is default. Something is not correct'
 done = False
 
 
