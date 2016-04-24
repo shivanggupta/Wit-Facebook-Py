@@ -70,6 +70,7 @@ def hello():
                 message = x['message']['text']
                 recipient_id = x['sender']['id']
                 messageToSend = client.run_actions(session_id, message, {})
+                print messageToSend
                 bot.send_text_message(recipient_id, message)
             else:
                 pass
