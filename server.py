@@ -78,6 +78,7 @@ def hello():
                 if done:
                     print messageToSend
                     bot.send_text_message(recipient_id, messageToSend)
+                    bot.send_text_message(recipient_id, "a")
             else:
                 pass
         return "success"
