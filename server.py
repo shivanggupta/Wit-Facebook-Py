@@ -26,7 +26,8 @@ def first_entity_value(entities, entity):
     return val['value'] if isinstance(val, dict) else val
 
 def say(session_id, context, msg):
-    global messageToSend = msg
+    global messageToSend
+    messageToSend = msg
 
 
 def merge(session_id, context, entities, msg):
