@@ -3,7 +3,6 @@ import pywapi
 from flask import Flask, request
 from pymessenger.bot import Bot
 import requests
-import ipdb
 import os
 
 # Insert Wit access token here. Don't forget to train the Wit bot.
