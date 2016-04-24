@@ -15,7 +15,6 @@ bot = Bot(TOKEN)
 
 app = Flask(__name__)
 
-
 messageToSend = 'a'
 
 def first_entity_value(entities, entity):
@@ -28,8 +27,7 @@ def first_entity_value(entities, entity):
 
 def say(session_id, context, msg):
     print(msg)
-    print(type(msg))
-    messageToSend = msg
+    messageToSend = 'msg'
 
 
 def merge(session_id, context, entities, msg):
