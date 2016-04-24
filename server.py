@@ -16,6 +16,7 @@ bot = Bot(TOKEN)
 app = Flask(__name__)
 
 messageToSend = 'a'
+done = False
 
 def first_entity_value(entities, entity):
     if entity not in entities:
@@ -28,6 +29,8 @@ def first_entity_value(entities, entity):
 def say(session_id, context, msg):
     global messageToSend
     messageToSend = msg
+    global done
+    done = True
 
 
 def merge(session_id, context, entities, msg):
@@ -73,7 +76,8 @@ def hello():
                 recipient_id = x['sender']['id']
                 client.run_actions(session_id, message, {})
                 print messageToSend
-                bot.send_text_message(recipient_id, messageToSend)
+                if done:
+                    bot.send_text_message(recipient_id, messageToSend)
             else:
                 pass
         return "success"
