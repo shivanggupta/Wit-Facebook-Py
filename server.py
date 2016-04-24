@@ -16,6 +16,11 @@ bot = Bot(TOKEN)
 app = Flask(__name__)
 
 
+client = Wit(access_token, actions)
+session_id = os.environ.get('WIT_USERNAME')
+
+messageToSend = ''
+
 def first_entity_value(entities, entity):
     if entity not in entities:
         return None
@@ -26,6 +31,8 @@ def first_entity_value(entities, entity):
 
 def say(session_id, context, msg):
     print(msg)
+    messageToSend = msg
+
 
 def merge(session_id, context, entities, msg):
     loc = first_entity_value(entities, 'location')
@@ -50,10 +57,8 @@ actions = {
     'fetch-weather': fetch_weather,
 }
 
-client = Wit(access_token, actions)
-
 # Insert wit username below
-session_id = os.environ.get('WIT_USERNAME')
+
 
 # client.run_actions(session_id, 'weather in %s'%place, {})
 
@@ -69,9 +74,9 @@ def hello():
             if (x.get('message') and x['message'].get('text')):
                 message = x['message']['text']
                 recipient_id = x['sender']['id']
-                messageToSend = client.run_actions(session_id, message, {})
+                client.run_actions(session_id, message, {})
                 print messageToSend
-                bot.send_text_message(recipient_id, message)
+                bot.send_text_message(recipient_id, messageToSend)
             else:
                 pass
         return "success"
