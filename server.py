@@ -16,7 +16,7 @@ bot = Bot(TOKEN)
 app = Flask(__name__)
 
 
-messageToSend = ''
+messageToSend = 'a'
 
 def first_entity_value(entities, entity):
     if entity not in entities:
@@ -28,6 +28,7 @@ def first_entity_value(entities, entity):
 
 def say(session_id, context, msg):
     print(msg)
+    print(type(msg))
     messageToSend = msg
 
 
