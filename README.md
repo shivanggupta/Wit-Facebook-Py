@@ -1,9 +1,9 @@
-# Python Weather Messenger Bot
+# Wit Facebook Weather Py
 
 A Python bot, that contains a Flask server designed to be deployed on Heroku. 
 The application uses a bot made using the Python API from [Wit.ai](https://wit.ai/home) and the [Facebook Messenger API](https://developers.facebook.com/quickstarts/?platform=web).
 
-The bot is designed to provide real-time weather updates using the [pywapi](https://pypi.python.org/pypi/pywapi) wrapper for the Weather.com API.
+The bot is designed to provide real-time weather updates on Messenger using the [pywapi](https://pypi.python.org/pypi/pywapi) wrapper for the Weather.com API.
 
 ## Initial Installation
 Fork this repository and clone.
@@ -39,7 +39,6 @@ git push heroku master
 WIT_TOKEN = "your wit.ai token"
 FB_PAGE_TOKEN = "your facebook page token"
 FB_VERIFY_TOKEN = "your webhook verification token"
-WIT_USERNAME = "your wit.ai username"
 ```
 
 Finally go to the Facebook page you made and chat to the bot!
@@ -50,7 +49,7 @@ Finally go to the Facebook page you made and chat to the bot!
 Within the repository you'll find the following directories and files:
 
 ```
-python-weather-messenger-bot
+Wit-Facebook-Weather-Py
         ├── setup needed as Heroku pip doesn't find this.
         ├── app.json
         ├── Procfile

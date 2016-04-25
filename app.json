@@ -1,8 +1,8 @@
 {
-  "name": "Python Weather Messenger Bot",
+  "name": "Wit Facebook Weather Py",
   "description": "A simple Python app, that deploys a bot on Facebook Messenger to provide realtime weather updates.",
   "image": "heroku/python",
-  "repository": "https://github.com/shivanggupta/python-weather-messenger-bot",
+  "repository": "https://github.com/shivanggupta/Wit-Facebook-Weather-Py",
   "keywords": ["python", "flask", "wit", "bot", "facebook", "Messenger" ],
   "env": {
     "WIT_TOKEN": {
@@ -15,10 +15,6 @@
     },
     "FB_VERIFY_TOKEN": {
       "description": "Facebook Verfication Token. Please make something up.",
-      "required": true
-    },
-    "WIT_USERNAME": {
-      "description": "The wit.ai username is needed for session.",
       "required": true
     }
   }

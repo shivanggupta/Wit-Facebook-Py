@@ -63,7 +63,6 @@ actions = {
 }
 
 client = Wit(access_token, actions)
-session_id = os.environ.get('WIT_USERNAME')
 
 # Set up webserver and respond to messages
 
@@ -82,7 +81,7 @@ def hello():
             if (x.get('message') and x['message'].get('text')):
                 message = x['message']['text']
                 recipient_id = x['sender']['id']
-                client.run_actions(session_id, message, {})
+                client.run_actions(recipient_id, message, {})
                 if done:
                     print messageToSend
                     bot.send_text_message(recipient_id, messageToSend)
